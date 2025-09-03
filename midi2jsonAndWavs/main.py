@@ -66,11 +66,9 @@ class Midi2Json:
                             frequency = 440.0 * (2 ** ((msg.note - 69) / 12))
                             start_sec = self.tick_to_seconds(start_time, tempo)
                             end_sec = self.tick_to_seconds(end_time, tempo)
-                            self.result[-1].append([
-                                frequency,
-                                start_sec,
-                                end_sec
-                            ])
+                            self.result[-1].append(frequency)
+                            self.result[-1].append(start_sec)
+                            self.result[-1].append(end_sec)
                             del self.note_times[msg.note]
         print("歌词提取完毕。")
 
